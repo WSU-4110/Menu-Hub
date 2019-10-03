@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MenuHub</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings_descript">Button that takes the user to a separate settings
+    section</string>
+    <string name="fav_descript">Button that takes the user to the saved favorite menu
+    section</string>
+    <string name="map_descript">Button that takes the user to the map section</string>
+    <string name="title_activity_map">Map</string>
+</resources>
