@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+       >
+
+
+
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:paddingLeft="16dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:hint="Please Input Restaurant"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:paddingRight="16dp"
+            android:background="@null"/>
+        <Button
+            android:id="@+id/bt_search"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:text="Search"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>
