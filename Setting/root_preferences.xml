@@ -1,0 +1,59 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="manage_category"
+        app:title="MANAGE">
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable notifications"/>
+
+        <SwitchPreferenceCompat
+            app:key="location"
+            app:title="Enable Location"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="legal_category"
+        app:title="LEGAL">
+
+        <Preference
+            android:key="about_us"
+            android:summary="Read about us..."
+            android:title="About Us">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/WSU-4110/Menu-Hub/blob/master/About%20Us"/>
+        </Preference>
+
+        <Preference
+            android:key="contact_us"
+            android:summary="Contact with us..."
+            android:title="Contact Us">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/WSU-4110/Menu-Hub/blob/master/Contact%20Us"/>
+        </Preference>
+
+        <Preference
+            android:key="privacy_policy"
+            android:summary="Read our privacy policy..."
+            android:title="Privacy Policy">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/WSU-4110/Menu-Hub/blob/master/Privacy%20Policy"/>
+        </Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="version_category"
+        app:title="V1.0" />
+
+</PreferenceScreen>
