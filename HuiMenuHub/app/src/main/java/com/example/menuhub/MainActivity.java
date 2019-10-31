@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SearchActivity.class));
             return true;
         }
-        if (id == R.id.map) {
+        if (id == R.id.menu_map) {
             startActivity(new Intent(this,MapsActivity.class));
             return true;
         }
