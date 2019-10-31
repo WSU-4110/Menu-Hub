@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SearchActivity.class));
             return true;
         }
+        if (id == R.id.map) {
+            startActivity(new Intent(this,MapsActivity.class));
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
