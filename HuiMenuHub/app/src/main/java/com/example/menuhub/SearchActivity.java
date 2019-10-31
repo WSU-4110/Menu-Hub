@@ -7,12 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
@@ -43,6 +45,31 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         setTitle("Search");
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_search:
+                        break;
+                    case R.id.menu_home:
+                        Intent a = new Intent(SearchActivity.this,MainActivity.class);
+                        startActivity(a);
+                        break;
+                    case R.id.menu_add:
+                        Intent b = new Intent(SearchActivity.this,AddMenuActivity.class);
+                        startActivity(b);
+                        break;
+                    case R.id.menu_setting:
+                        Intent c = new Intent(SearchActivity.this,SettingsActivity.class);
+                        startActivity(c);
+                        break;
+                }
+                return false;
+            }
+            });
+
+
         mRecyclerview = findViewById(R.id.recyclerview);
         etName = findViewById(R.id.et_name);
         LinearLayoutManager footManager = new LinearLayoutManager(this);

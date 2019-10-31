@@ -80,4 +80,20 @@
             android:textColor="@color/white"
             android:background="@color/colorPrimary"
             android:text="Add"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="281dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/menu_navigation">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </LinearLayout>

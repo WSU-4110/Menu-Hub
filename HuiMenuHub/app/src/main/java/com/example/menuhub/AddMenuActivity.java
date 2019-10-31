@@ -7,14 +7,18 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.io.FileNotFoundException;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,6 +37,29 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         mIvImg = findViewById(R.id.iv_img);
       findViewById(R.id.btn_add).setOnClickListener(this);
         mIvImg.setOnClickListener(this);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_add:
+                        break;
+                    case R.id.menu_home:
+                        Intent a = new Intent(AddMenuActivity.this,MainActivity.class);
+                        startActivity(a);
+                        break;
+                    case R.id.menu_search:
+                        Intent b = new Intent(AddMenuActivity.this,SearchActivity.class);
+                        startActivity(b);
+                        break;
+                    case R.id.menu_setting:
+                        Intent c = new Intent(AddMenuActivity.this,SettingsActivity.class);
+                        startActivity(c);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
 
