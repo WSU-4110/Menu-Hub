@@ -93,7 +93,10 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
     private void getData() {
-        String keyword = etName.getText().toString();
+
+       search sch =  search.getInstance();
+        String keyword = sch.getkeyword(etName);
+       // String keyword = sch.getkeyword();
         if (TextUtils.isEmpty(keyword)){
             return;
         }
@@ -106,5 +109,7 @@ public class SearchActivity extends AppCompatActivity {
         }
         mHomeAdapter.notifyDataSetChanged();
     }
+
+
 
 }
