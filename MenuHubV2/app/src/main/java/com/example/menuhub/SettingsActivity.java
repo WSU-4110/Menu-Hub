@@ -44,6 +44,11 @@ public class SettingsActivity extends AppCompatActivity {
                         Intent c = new Intent(SettingsActivity.this,MainActivity.class);
                         startActivity(c);
                         break;
+                    case R.id.menu_map:
+                        MapsActivity.getInstance();
+                        Intent d = new Intent(SettingsActivity.this,MapsActivity.class);
+                        startActivity(d);
+                        break;
                 }
                 return false;
             }

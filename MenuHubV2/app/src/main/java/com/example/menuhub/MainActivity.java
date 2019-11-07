@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.homeTitle1);
         title.setText("Menu Hub");
 
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(c);
                         break;
                     case R.id.menu_map:
+                        MapsActivity.getInstance();
                         Intent d = new Intent(MainActivity.this,MapsActivity.class);
                         startActivity(d);
                         break;

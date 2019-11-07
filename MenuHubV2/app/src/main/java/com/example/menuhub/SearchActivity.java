@@ -64,6 +64,11 @@ public class SearchActivity extends AppCompatActivity {
                         Intent c = new Intent(SearchActivity.this,SettingsActivity.class);
                         startActivity(c);
                         break;
+                    case R.id.menu_map:
+                        MapsActivity.getInstance();
+                        Intent d = new Intent(SearchActivity.this,MapsActivity.class);
+                        startActivity(d);
+                        break;
                 }
                 return false;
             }

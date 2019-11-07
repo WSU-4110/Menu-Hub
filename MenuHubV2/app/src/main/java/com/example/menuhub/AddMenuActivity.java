@@ -56,6 +56,11 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                         Intent c = new Intent(AddMenuActivity.this,SettingsActivity.class);
                         startActivity(c);
                         break;
+                    case R.id.menu_map:
+                        MapsActivity.getInstance();
+                        Intent d = new Intent(AddMenuActivity.this,MapsActivity.class);
+                        startActivity(d);
+                        break;
                 }
                 return false;
             }
