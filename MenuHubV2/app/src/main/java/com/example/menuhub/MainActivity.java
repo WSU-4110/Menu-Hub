@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent c = new Intent(MainActivity.this,SettingsActivity.class);
                         startActivity(c);
                         break;
+                    case R.id.menu_map:
+                        Intent d = new Intent(MainActivity.this,MapsActivity.class);
+                        startActivity(d);
+                        break;
                 }
                 return false;
             }

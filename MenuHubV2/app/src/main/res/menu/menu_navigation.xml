@@ -18,4 +18,8 @@
         android:id="@+id/menu_setting"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="Settings" />
+    <item
+        android:id="@+id/menu_map"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="Map" />
 </menu>
