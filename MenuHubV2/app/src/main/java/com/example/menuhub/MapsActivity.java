@@ -1,8 +1,8 @@
 package com.example.menuhub;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,12 +25,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         // Add a marker in Detroit and move the camera
-        LatLng detroit = new LatLng(42, -83);
+        LatLng detroit = new LatLng(42.3314, -83.0485);
         mMap.addMarker(new MarkerOptions().position(detroit).title("Marker in Detroit"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(detroit));
     }
