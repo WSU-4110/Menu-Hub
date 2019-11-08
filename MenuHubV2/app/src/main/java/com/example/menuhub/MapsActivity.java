@@ -21,6 +21,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             single_instance = new MapsActivity();
         }
         return single_instance;
+        
     }
 
     @Override
