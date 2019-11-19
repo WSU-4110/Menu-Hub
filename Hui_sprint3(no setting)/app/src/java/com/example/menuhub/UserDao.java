@@ -10,7 +10,7 @@ import android.util.Log;
 import java.util.HashMap;
 
 /**
- * User's database table manipulation tool
+ * User's database table manipulation tool.
  */
 public class UserDao {
     /**
