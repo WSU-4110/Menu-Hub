@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-// this is for connect database
+// this is for connecting the  database
 import java.util.HashMap;
 
 /**
