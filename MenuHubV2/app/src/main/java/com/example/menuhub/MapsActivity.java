@@ -85,10 +85,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
-        }
     }
 
     protected synchronized void buildGoogleApiClient() {
@@ -154,7 +151,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googlePlaceUrl.append("&radius="+PROXIMITY_RADIUS);
         googlePlaceUrl.append("&type="+nearbyPlace);
         googlePlaceUrl.append("&sensor=true");
-        googlePlaceUrl.append("&key="+"AIzaSyBlzuK1rKD0J2YlYZKjlHXj16sibJKa6is");
+        googlePlaceUrl.append("&key="+"AIzaSyBg6ljZfwOuXxyr9TkYR-d_PQA0pWvVUjI");
 
         Log.d("MapsActivity", "url = "+googlePlaceUrl.toString());
 
