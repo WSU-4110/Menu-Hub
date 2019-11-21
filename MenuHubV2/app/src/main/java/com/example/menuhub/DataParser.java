@@ -1,9 +1,14 @@
 package com.example.menuhub;
 
+import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DataParser {
 
@@ -15,6 +20,8 @@ public class DataParser {
         String longitude = "";
         String reference = "";
 
+        Log.d("DataParser","jsonobject = " + googlePlacesJason.toString());
+
         try {
             if (!googlePlacesJason.isNull("name")) {
                 placeName = googlePlacesJason.getString("name");
@@ -24,7 +31,6 @@ public class DataParser {
             }
             latitude = googlePlacesJason.getJSONObject("geometry").getJSONObject("location").getString("lat");
             longitude = googlePlacesJason.getJSONObject("geometry").getJSONObject("location").getString("lng");
-
             reference = googlePlacesJason.getString("refeence");
 
             googlePlacesMap.put("place_name", placeName);
@@ -37,5 +43,36 @@ public class DataParser {
                 e.printStackTrace();
         }
         return googlePlacesMap;
+    }
+
+    private List<HashMap<String,String>>getPlaces(JSONArray jsonArray) {
+        int count = jsonArray.length();
+        List<HashMap<String,String>> placesList = new ArrayList<>();
+        HashMap<String,String> placeMap = null;
+
+        for(int i = 0; i < count; i++) {
+            try {
+                placeMap = getPlace((JSONObject) jsonArray.get(i));
+                placesList.add(placeMap);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return  placesList;
+    }
+
+    public List<HashMap<String,String>> parse(String jsonData) {
+        JSONArray jsonArray = null;
+        JSONObject jsonObject;
+
+        Log.d("json data",jsonData);
+
+        try {
+            jsonObject = new JSONObject(jsonData);
+            jsonArray = jsonObject.getJSONArray("results");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return getPlaces(jsonArray);
     }
 }
