@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class SearchActivity extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         setTitle("Search");
@@ -64,6 +66,7 @@ public class SearchActivity extends AppCompatActivity {
                         Intent c = new Intent(SearchActivity.this,SettingsActivity.class);
                         startActivity(c);
                         break;
+
                 }
                 return false;
             }
