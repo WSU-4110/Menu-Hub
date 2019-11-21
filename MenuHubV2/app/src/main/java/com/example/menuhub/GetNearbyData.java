@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GetNearbyData extends AsyncTask<Object, String, String> {
 
-    private String googlePlaceData;
+    private String googlePlacesData;
     private GoogleMap mMap;
     String url;
 
@@ -25,16 +25,16 @@ public class GetNearbyData extends AsyncTask<Object, String, String> {
 
         DownloadUrl downloadUrl = new DownloadUrl();
         try {
-            googlePlaceData = downloadUrl.readUrl(url);
+            googlePlacesData = downloadUrl.readUrl(url);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return googlePlaceData;
+        return googlePlacesData;
     }
 
     @Override
     protected void onPostExecute(String s) {
-        List<HashMap<String,String>> nearbyPlaceList = null;
+        List<HashMap<String,String>> nearbyPlaceList;
         DataParser parser = new DataParser();
         nearbyPlaceList = parser.parse(s);
         showNearbyPlaces(nearbyPlaceList);
