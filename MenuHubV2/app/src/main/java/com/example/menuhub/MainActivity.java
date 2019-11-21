@@ -39,15 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView title = (TextView) findViewById(R.id.homeTitle1);
         title.setText("Menu Hub");
-/*
-        button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLogin();
-            }
-        });
-*/
+
         button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-    }
-    public void openLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
     public void openReport() {
         Intent intent = new Intent(this, Reporting.class);
