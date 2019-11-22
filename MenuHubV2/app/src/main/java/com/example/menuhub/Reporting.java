@@ -1,6 +1,9 @@
 package com.example.menuhub;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,15 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Environment;
 import android.provider.MediaStore;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,26 +26,20 @@ import java.io.IOException;
 public class Reporting extends AppCompatActivity {
 
     Button button;
-
-    String name;
-    String email;
-    String description;
-
     EditText Name;
-    EditText Email;
     EditText Description;
-
-    private static final String FILE_NAME = "example.txt";
-
-    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporting);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
+        }
+
         Name = (EditText) findViewById(R.id.Name);
-        Email = (EditText) findViewById(R.id.Email);
         Description = (EditText) findViewById(R.id.Description);
 
         button = (Button) findViewById(R.id.submitButton);
@@ -51,41 +47,50 @@ public class Reporting extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = Name.getText().toString();
-                email = Email.getText().toString();
-                description = Description.getText().toString();
-                openHome();
-            }
-        });
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu_search:
-                        Intent a = new Intent(Reporting.this,SearchActivity.class);
-                        startActivity(a);
-                        break;
-                    case R.id.menu_home:
-                        Intent e = new Intent(Reporting.this,MainActivity.class);
-                        startActivity(e);
-                        break;
-                    case R.id.menu_add:
-                        Intent b = new Intent(Reporting.this,AddMenuActivity.class);
-                        startActivity(b);
-                        break;
-                    case R.id.menu_setting:
-                        Intent c = new Intent(Reporting.this,SettingsActivity.class);
-                        startActivity(c);
-                        break;
+                String fileName = Name.getText().toString();
+                String description = Description.getText().toString();
 
+                if(!fileName.equals("") && !description.equals("")) {
+                    saveText(fileName, description);
                 }
-                return false;
             }
         });
     }
-    public void openHome() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+
+    //saving locally to storage as text file
+    private void saveText(String filename, String description){
+        String fileName = filename + ".txt";
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), fileName);
+
+        //writing to the text file
+        try {
+            FileOutputStream output = new FileOutputStream(file);
+            output.write(description.getBytes());
+            output.close();
+            Toast.makeText(this, "Submitted", Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "File Not Found", Toast.LENGTH_SHORT).show();
+        } catch (IOException e){
+            e.printStackTrace();
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    //asking permission to access the storage of the device
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1000:
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, "Permission not Granted", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+        }
     }
 }
