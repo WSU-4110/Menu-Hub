@@ -77,20 +77,4 @@ public class Reporting extends AppCompatActivity {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-    //asking permission to access the storage of the device
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case 1000:
-                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(this, "Permission not Granted", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-        }
-    }
 }
