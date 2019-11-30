@@ -34,14 +34,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_register.setOnClickListener(this);
     }
 
+    public int validation( String name, String pass){
+        int result;
+
+        result = UserDao.getInstance(getApplicationContext()).login(pass,name);
+        return result;
+    }
+
+
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_login:
+
+                // if else statement for check username and password
                 String name=etName.getText().toString().trim();
                 String pass=etPwd.getText().toString().trim();
-                // if else statement for check username and password
-                int result= UserDao.getInstance(getApplicationContext()).login(pass,name);
+                int result= validation(name,pass);
                 if (result==-2){
                     Toast.makeText(LoginActivity.this,"User Name is not Exist！", Toast.LENGTH_SHORT).show();
                 }else if(result==-1){

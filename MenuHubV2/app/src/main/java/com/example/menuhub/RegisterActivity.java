@@ -17,10 +17,13 @@ import androidx.appcompat.widget.Toolbar;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etName;
     private EditText etPwd;
+
     private Button btLogin;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         setTitle("CREATE ACCOUNT");
@@ -52,11 +55,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
     @Override
     public void onClick(View v) {
+
         switch (v.getId()){
             case R.id.btn_login:
                 // if and else statement to check username and password is empty or not.
                 String name=etName.getText().toString().trim();
                 String pass=etPwd.getText().toString().trim();
+
+
                 if (TextUtils.isEmpty(name)){
                     onToast("User Name Cannot Empty");
                     return;
@@ -65,10 +71,20 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     onToast("Password cannot Empty");
                     return;
                 }
+
                 User user=new User();
-                user.username = name;
-                user.userpwd = pass;
+                if(UserValidator.isValidUser(name)){
+
+                    user.username = name;
+                    user.userpwd = pass;
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this,"User Format is Not Right", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
                 // this is for registration page to check for success！
+
                 int result= UserDao.getInstance(getApplicationContext()).registerUser(user);
                 if (result==1){
                     Toast.makeText(RegisterActivity.this,"Registration Successfully！", Toast.LENGTH_SHORT).show();
