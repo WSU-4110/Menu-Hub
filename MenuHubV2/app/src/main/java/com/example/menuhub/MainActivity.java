@@ -19,8 +19,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.litepal.crud.DataSupport;
@@ -82,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void openReport() {
         Intent intent = new Intent(this, Reporting.class);
         startActivity(intent);
