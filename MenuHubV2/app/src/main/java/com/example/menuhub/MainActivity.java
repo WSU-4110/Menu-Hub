@@ -31,9 +31,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private Button button;
+    //delete the first button which was never used 
+    //rename the button2 and button3
+    private Button button1;
     private Button button2;
-    private Button button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.homeTitle1);
         title.setText("Menu Hub");
 
-        button2 = (Button) findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+        button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openReport();
             }
         });
-        button3 = (Button) findViewById(R.id.button3);
-        button3.setOnClickListener(new View.OnClickListener() {
+        button2 = (Button) findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMaps();
