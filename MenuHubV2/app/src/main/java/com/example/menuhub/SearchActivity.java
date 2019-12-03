@@ -28,7 +28,8 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<MenuHub> dataList = new ArrayList<>();
     private EditText etName;
     public void setTitle(String title) {
-        Toolbar toolbar =  findViewById(R.id.toolbar);
+        //added (Toolbar) to avoid null pointer exception
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -72,9 +73,10 @@ public class SearchActivity extends AppCompatActivity {
             }
             });
 
-
-        mRecyclerview = findViewById(R.id.recyclerview);
-        etName = findViewById(R.id.et_name);
+        //added (RecyclerView) to avoid null pointer exception
+        mRecyclerview = (RecyclerView) findViewById(R.id.recyclerview);
+        //added (EditText) to avoid null pointer exception
+        etName = (EditText) findViewById(R.id.et_name);
         LinearLayoutManager footManager = new LinearLayoutManager(this);
         footManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerview.setLayoutManager(footManager);
