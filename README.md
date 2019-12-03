@@ -1,5 +1,6 @@
 # Menu-Hub
-An all in one app for restaurant menu's nationwide using crowd sourcing
+An all in one app for restaurant menu's nationwide using crowd sourcing.
+For system requirements and instructions to build and install the software see [installation.md](https://github.com/WSU-4110/Menu-Hub/blob/master/installation.md)
 
 
 ## Functionalities
