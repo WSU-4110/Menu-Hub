@@ -56,7 +56,8 @@ public class GoodAdapter extends RecyclerView.Adapter<GoodAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv_name);
+            //added (TextView) to avoid null pointer exception
+            tvName = (TextView) itemView.findViewById(R.id.tv_name);
         }
     }
 
