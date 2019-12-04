@@ -96,12 +96,14 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
     private void getData() {
+        // get the keyword from input
         String keyword = etName.getText().toString();
         if (TextUtils.isEmpty(keyword)){
             return;
         }
         List<MenuHub> list = DataSupport.findAll(MenuHub.class);
         dataList.clear();
+        //use the linklist to check the name at database match with input name.
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).name.contains(keyword)||list.get(i).name.equals(keyword)){
                 dataList.add(list.get(i));
