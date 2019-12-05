@@ -2,7 +2,7 @@
 
 ## Build the software
 
-### Requirements
+### Requirements:
 - System must have Java installed
 - System must have Java in its execution path
 
