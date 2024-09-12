@@ -33,8 +33,10 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         setTitle("Add Restaurant");
-        etName = findViewById(R.id.et_name);
-        mIvImg = findViewById(R.id.iv_img);
+        //add (EditText) to avoid null pointer exception
+        etName = (EditText) findViewById(R.id.et_name);
+        //add (ImageView) to avoid null pointer exception
+        mIvImg = (ImageView) findViewById(R.id.iv_img);
       findViewById(R.id.btn_add).setOnClickListener(this);
         mIvImg.setOnClickListener(this);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

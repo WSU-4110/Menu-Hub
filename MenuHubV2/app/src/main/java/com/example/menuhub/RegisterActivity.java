@@ -28,9 +28,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void init() {
-        etName = findViewById(R.id.et_write_name);
-        etPwd = findViewById(R.id.et_write_pwd);
-        btLogin = findViewById(R.id.btn_login);
+        //added (EditText) to avoid null pointer exception
+        etName = (EditText) findViewById(R.id.et_write_name);
+        //added (EditText) to avoid null pointer exception
+        etPwd = (EditText) findViewById(R.id.et_write_pwd);
+        //added (Button) to avoid null pointer exception
+        btLogin = (Button) findViewById(R.id.btn_login);
         btLogin.setOnClickListener(this);
     }
     public void setTitle(String title) {
